@@ -1,0 +1,5 @@
+website_url = "https://petrzalka.sk/plavaren/"
+DB="swimming_data" 
+DBNAME="crawler"
+DBPASSWORD="crawler"
+DBHOST="db"

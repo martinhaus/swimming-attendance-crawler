@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  db:
+    hostname: db
+    restart: always 
+    image: "postgres:latest"
+    environment:
+      - POSTGRES_USER=crawler
+      - POSTGRES_PASSWORD=crawler
+      - POSTGRES_DB=swimming_data
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./pgdata:/var/lib/postgresql/data
+  flaskapp:
+    restart: always
+    depends_on:
+      - db
+    build: .
+    ports:
+      - "5000:5000" 
