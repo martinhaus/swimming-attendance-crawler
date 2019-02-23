@@ -6,7 +6,7 @@ import db_functions
 app = Flask(__name__)
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=crawler.save_current_occupancy, trigger="interval", minutes=10s)
+scheduler.add_job(func=crawler.save_current_occupancy, trigger="interval", minutes=10)
 scheduler.start()
 
 
